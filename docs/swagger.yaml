@@ -1,0 +1,58 @@
+basePath: /
+definitions:
+  types.ErrorResponse:
+    properties:
+      message:
+        type: string
+    type: object
+  types.ResponseCheckBalanceInfo:
+    properties:
+      adress:
+        type: string
+    type: object
+host: localhost:8000
+info:
+  contact: {}
+  description: API server for getblockio Application
+  title: Getblockio
+  version: "1.0"
+paths:
+  /getblockio/{apikey_id}:
+    post:
+      consumes:
+      - application/json
+      description: getblockio
+      operationId: getblockio
+      parameters:
+      - description: Apikey Id
+        in: path
+        name: apikey_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/types.ResponseCheckBalanceInfo'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/types.ErrorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/types.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/types.ErrorResponse'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/types.ErrorResponse'
+      summary: getblockio
+      tags:
+      - getblockio
+swagger: "2.0"
