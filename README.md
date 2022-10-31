@@ -1,8 +1,15 @@
 # weatherchecker
 
-## Project setup
+### Project setup
+## install util make
+Windows:
 ```
-install util make
+scoop install make
+```
+
+Macos:
+```
+brew install make
 ```
 
 ### Compiles and hot-reloads for development with docker
